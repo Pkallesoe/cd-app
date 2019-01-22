@@ -5,6 +5,7 @@ import { DisplayAllCDService } from 'src/app/services/cd/display-all-cd.service'
 import { DeleteCDService } from 'src/app/services/cd/delete-cd.service';
 import { EditCDService } from 'src/app/services/cd/edit-cd.service';
 import { AddCDService } from 'src/app/services/cd/add-cd.service';
+import { SearchCDsService } from 'src/app/services/cd/search-cds.service';
 
 @Component({
   selector: 'app-display-all-cds',
@@ -19,7 +20,8 @@ export class DisplayAllCDsComponent implements OnInit {
     private displayCDs: DisplayAllCDService,
     private deleteCD: DeleteCDService,
     private addCD: AddCDService,
-    private editCD: EditCDService) { }
+    private editCD: EditCDService,
+    private searchCD: SearchCDsService) { }
 
   ngOnInit() {
     this.displayAll();
@@ -37,6 +39,14 @@ export class DisplayAllCDsComponent implements OnInit {
   delete(CD: CD): void {
     this.CDs = this.CDs.filter(c => c !== CD);
     this.deleteCD.execute(CD.id).subscribe();
+  }
+
+  search(from: number, to: number, genre: string) {
+    this.editCD = undefined;
+    if (from && to && genre) {
+      this.searchCD.execute(from, to, genre)
+        .subscribe(CDs => this.CDs = CDs.filter(cd =>  cd.year >= from && cd.year <= to));
+    }
   }
 
 }
