@@ -1,14 +1,12 @@
 <!-- Display CDs -->
-<ul class="cds">
-  <li *ngFor="let cd of CDs">
-      <!--<span class="badge">{{ cd.id}}</span> - -->
-      <span >{{cd.artist}}</span> -
-      <span >{{cd.album}}</span> -  
-      <span >{{cd.genre}}</span> - 
-      <span >{{cd.year}}</span> -
-      <button (click)="show(cd.id)">Show</button>
+<div *ngFor="let cd of CDs">
+  <div>
+    <span>{{cd.artist}}</span> -
+    <span>{{cd.album}}</span> -
+    <span>{{cd.genre}}</span> -
+    <span>{{cd.year}}</span> -
+    <button (click)="show(cd.id)">Show</button>
     <button (click)="edit(cd)">Edit</button>
-    <button class="delete" title="delete cd"
-    (click)="delete(cd)">Delete</button>
-  </li>
-</ul>
+    <button class="delete" title="delete cd" (click)="delete(cd)">Delete</button>
+  </div>
+</div>

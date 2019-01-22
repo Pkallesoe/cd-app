@@ -1,3 +1,10 @@
-<p>
-  display-one-cd works!
-</p>
+<div *ngIf="cd">
+
+    <h2>{{cd.artist | uppercase}} - {{ cd.album }}Details</h2>
+    <div><span>id: </span>{{cd.id}}</div>
+    <div>
+      <label>Artist:
+      </label>
+    </div>
+  
+  </div>
