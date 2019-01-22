@@ -6,6 +6,7 @@ import { DeleteCDService } from 'src/app/services/cd/delete-cd.service';
 import { EditCDService } from 'src/app/services/cd/edit-cd.service';
 import { AddCDService } from 'src/app/services/cd/add-cd.service';
 import { SearchCDsService } from 'src/app/services/cd/search-cds.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-all-cds',
@@ -21,7 +22,9 @@ export class DisplayAllCDsComponent implements OnInit {
     private deleteCD: DeleteCDService,
     private addCD: AddCDService,
     private editCD: EditCDService,
-    private searchCD: SearchCDsService) { }
+    private searchCD: SearchCDsService,
+    private router: Router) { }
+
 
   ngOnInit() {
     this.displayAll();
@@ -34,7 +37,12 @@ export class DisplayAllCDsComponent implements OnInit {
 
   displayThis(): void {}
 
-  edit(CD: CD): void {}
+  edit(CD: CD) {
+    this.displayCDs.get()
+    .subscribe(CDs => this.CDs = CDs.filter(cd =>  cd.id == CD.id));
+    this.router.navigate(['/edit/' + CD.id]);
+
+  }
 
   delete(CD: CD): void {
     this.CDs = this.CDs.filter(c => c !== CD);

@@ -13,14 +13,14 @@ export class DisplayOneCDService {
   cdURL = 'cd';
 
   constructor(private http: HttpClient, private getCDs: DisplayAllCDService) { }
-
+/*
   getM(id: string): Observable<CD[]> {
     console.log(id);
     const options = id ?
       { params: new HttpParams().set('id', id) } : {};
     return this.http.get<CD[]>(this.cdURL, options);
   }
-
+*/
   get(id: number | string) {
     return this.getCDs.get().pipe(
       // (+) before `id` turns the string into a number

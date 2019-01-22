@@ -1,3 +1,18 @@
-<p>
-  edit-cd works!
-</p>
+<div *ngIf="CD">YES</div>
+<div *ngFor="let cd of CDs">
+  <div>
+    <label>Artist:
+      <input [(ngModel)]="cd.artist" placeholder="artist">
+    </label> -
+    <label>Album:
+      <input [(ngModel)]="cd.album" placeholder="album">
+    </label> -
+    <label>Genre:
+      <input [(ngModel)]="cd.genre" placeholder="genre">
+    </label> -
+    <label>Year:
+      <input [(ngModel)]="cd.year" placeholder="year">
+    </label> -
+    <button (click)="save(cd)">Save</button>
+  </div>
+</div>

@@ -13,6 +13,8 @@ import { AddCDComponent } from './components/cd/add-cd/add-cd.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryCDDBService }  from './in-memory-cd-db.service';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { InMemoryCDDBService }  from './in-memory-cd-db.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryCDDBService)
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryCDDBService),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

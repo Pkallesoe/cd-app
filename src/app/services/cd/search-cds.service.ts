@@ -3,8 +3,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CD } from 'src/app/models/cd';
 
-
-
 @Injectable({
   providedIn: 'root'
 })

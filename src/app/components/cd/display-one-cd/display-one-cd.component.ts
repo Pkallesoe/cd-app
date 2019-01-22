@@ -1,10 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { ActivatedRoute } from "@angular/router";
-
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { CD } from 'src/app/models/cd';
-import { DisplayOneCDService } from 'src/app/services/cd/display-one-cd.service';
 import { DisplayAllCDService } from 'src/app/services/cd/display-all-cd.service';
 import { HttpClient } from '@angular/common/http';
 import { DeleteCDService } from 'src/app/services/cd/delete-cd.service';
@@ -26,8 +24,8 @@ export class DisplayOneCDComponent implements OnInit {
     private deleteCD: DeleteCDService,
     private http: HttpClient, 
     private route: ActivatedRoute, 
-    private displayService: DisplayOneCDService, 
-    private displayCDs: DisplayAllCDService) { }
+    private displayCDs: DisplayAllCDService,
+    private router: Router) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id")
@@ -44,6 +42,10 @@ export class DisplayOneCDComponent implements OnInit {
   delete(CD: CD): void {
     this.CDs = this.CDs.filter(c => c !== CD);
     this.deleteCD.execute(CD.id).subscribe();
+  }
+
+  edit(CD: CD){
+    this.router.navigate(['/edit/' + CD.id]);
   }
 
 }
