@@ -1,3 +1,11 @@
-<p>
-  search-cds works!
-</p>
+<div>
+    <label>
+      Search CDs by year interval and genre:
+      <input #cdSearchYearFrom />
+      <input #cdSearchYearto />
+      <input #cdSearchGenre />
+    </label>
+    <button (click)="search(cdSearchYearFrom.value, cdSearchYearto.value, cdSearchGenre.value)">
+        search
+      </button>
+  </div>

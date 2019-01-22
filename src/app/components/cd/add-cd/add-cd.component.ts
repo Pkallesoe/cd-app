@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddCDService } from 'src/app/services/cd/add-cd.service';
 import { CD } from 'src/app/models/cd';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-cd',
@@ -10,7 +11,7 @@ import { CD } from 'src/app/models/cd';
 export class AddCDComponent implements OnInit {
   CDs: CD[];
 
-  constructor(private addCD: AddCDService) { }
+  constructor(private addCD: AddCDService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,6 +28,8 @@ export class AddCDComponent implements OnInit {
 
     this.addCD.execute(newCD)
       .subscribe(cd => this.CDs.push(cd));
+
+      this.router.navigate(['/all']);
   }
 
 }

@@ -1,11 +1,26 @@
+<div class="searchBar">
+    <label>
+      Search CDs by year interval and genre:
+      <input #cdSearchYearFrom />
+      <input #cdSearchYearto />
+      <input #cdSearchGenre />
+    </label>
+    <button (click)="search(cdSearchYearFrom.value, cdSearchYearto.value, cdSearchGenre.value)">
+        search
+      </button>
+  </div>
+
+
+
 <!-- Display CDs -->
 <div *ngFor="let cd of CDs">
   <div>
-    <span>{{cd.artist}}</span> -
-    <span>{{cd.album}}</span> -
-    <span>{{cd.genre}}</span> -
-    <span>{{cd.year}}</span> -
-    <button (click)="displayOne(cd)">Show</button>
+    <a href="cd/{{ cd.id }}">
+      <span>{{ cd.artist }}</span> -
+      <span>{{ cd.album }}</span> -
+      <span>{{ cd.genre }}</span> -
+      <span>{{ cd.year }}</span>
+    </a> -
     <button (click)="edit(cd)">Edit</button>
     <button (click)="delete(cd)">Delete</button>
   </div>

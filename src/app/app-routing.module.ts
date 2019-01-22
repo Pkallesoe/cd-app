@@ -6,7 +6,7 @@ import { AddCDComponent } from './components/cd/add-cd/add-cd.component';
 
 const routes: Routes = [
   { path: 'all', component: DisplayAllCDsComponent },
-  { path: 'cd/:id', component: DisplayAllCDsComponent },
+  { path: 'cd/:id', component: DisplayOneCDComponent },
   { path: 'add', component: AddCDComponent }
 
 ];

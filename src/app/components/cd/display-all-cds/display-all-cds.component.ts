@@ -30,7 +30,7 @@ export class DisplayAllCDsComponent implements OnInit {
     .subscribe(CDs => this.CDs = CDs);
   }
 
-  displayOne(): void {}
+  displayThis(): void {}
 
   edit(CD: CD): void {}
 
@@ -38,19 +38,5 @@ export class DisplayAllCDsComponent implements OnInit {
     this.CDs = this.CDs.filter(c => c !== CD);
     this.deleteCD.execute(CD.id).subscribe();
   }
-/*
-  add(artist: string, album: string, genre: string, year: number): void {
-    //this.editCD = undefined;
-    artist = artist.trim();
-    album = album.trim();
-    genre = genre.trim();
-    if (!artist || !album || !genre || !year)  { return; }
 
-    // The server will generate the id for this new cd
-    const newCD: CD = { artist, album, genre, year} as CD; // Ved ikke helt hvorfor denne error opstår?
-
-    this.addCD.execute(newCD)
-      .subscribe(cd => this.CDs.push(cd));
-  }
-*/
 }

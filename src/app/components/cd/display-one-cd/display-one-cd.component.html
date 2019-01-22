@@ -1,10 +1,12 @@
-<div *ngIf="cd">
-
-    <h2>{{cd.artist | uppercase}} - {{ cd.album }}Details</h2>
-    <div><span>id: </span>{{cd.id}}</div>
+<div *ngFor="let cd of CDs">
     <div>
-      <label>Artist:
-      </label>
+      <a href="cd/{{ cd.id }}">
+        <span>{{ cd.artist }}</span> -
+        <span>{{ cd.album }}</span> -
+        <span>{{ cd.genre }}</span> -
+        <span>{{ cd.year }}</span>
+      </a> -
+      <button (click)="edit(cd)">Edit</button>
+      <button (click)="delete(cd)">Delete</button>
     </div>
-  
   </div>
