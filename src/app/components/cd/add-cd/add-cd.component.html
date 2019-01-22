@@ -1,0 +1,19 @@
+<div>
+  <label>Add a new CD
+    Artist: <input #cdArtist /> 
+    Album: <input #cdAlbum/>
+    Genre: <input #cdGenre/>
+    Year: <input #cdYear/>
+  </label>
+  <button (click)="
+  add(cdArtist.value,
+  cdAlbum.value, 
+  cdGenre.value, 
+  cdYear.value);
+  
+  cdArtist.value=''; 
+  cdAlbum.value=''; 
+  cdGenre.value=''; 
+  cdYear.value=''
+  ">Add</button>
+</div>

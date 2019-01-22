@@ -5,8 +5,8 @@
     <span>{{cd.album}}</span> -
     <span>{{cd.genre}}</span> -
     <span>{{cd.year}}</span> -
-    <button (click)="show(cd.id)">Show</button>
+    <button (click)="displayOne(cd)">Show</button>
     <button (click)="edit(cd)">Edit</button>
-    <button class="delete" title="delete cd" (click)="delete(cd)">Delete</button>
+    <button (click)="delete(cd)">Delete</button>
   </div>
 </div>
