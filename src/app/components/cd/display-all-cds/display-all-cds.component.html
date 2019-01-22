@@ -1,9 +1,9 @@
 <div class="searchBar">
     <label>
       Search CDs by year interval and genre:
-      <input #cdSearchYearFrom />
-      <input #cdSearchYearto />
-      <input #cdSearchGenre />
+      <input #cdSearchYearFrom placeholder="from"/>
+      <input #cdSearchYearto placeholder="to"/>
+      <input #cdSearchGenre placeholder="genre"/>
     </label>
     <button (click)="search(cdSearchYearFrom.value, cdSearchYearto.value, cdSearchGenre.value)">
         search
