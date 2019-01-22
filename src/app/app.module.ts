@@ -9,6 +9,10 @@ import { EditCDComponent } from './components/cd/edit-cd/edit-cd.component';
 import { DeleteCDComponent } from './components/cd/delete-cd/delete-cd.component';
 import { SearchCDsComponent } from './components/cd/search-cds/search-cds.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryCDDBService }  from './in-memory-cd-db.service';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +25,9 @@ import { SearchCDsComponent } from './components/cd/search-cds/search-cds.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryCDDBService)
   ],
   providers: [],
   bootstrap: [AppComponent]
